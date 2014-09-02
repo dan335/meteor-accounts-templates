@@ -1,7 +1,7 @@
 Package.describe({
 	name: "danimal:accounts-templates",
 	summary: "Account templates for Meteor.",
-	version: "1.0.0",
+	version: "1.0.1",
 	git: "https://github.com/dan335/meteor-accounts-templates.git"
 });
 
