@@ -1,15 +1,15 @@
 Package.describe({
 	name: "danimal:accounts-templates",
-	summary: " \* Fill me in! *\ ",
-	version: "0.0.1",
-	git: " \* Fill me in! *\ "
+	summary: "Account templates for Meteor.",
+	version: "0.0.4",
+	git: "https://github.com/dan335/meteor-accounts-templates.git"
 });
 
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.0.1');
-  api.use(['accounts-base', 'templating', 'session'], 'client');
-  api.addFiles('common.js', ['server', 'client'])
+  api.use(['accounts-base', 'templating'], 'client');
   api.addFiles([
+  	'client/validation.js',
 	'client/aChangePassword.html',
 	'client/aChangePassword.js',
 	'client/aCreateAccount.html',
@@ -20,9 +20,3 @@ Package.onUse(function(api) {
 	'client/aSignin.js',
 	], 'client');
 });
-
-// Package.onTest(function(api) {
-//   api.use('tinytest');
-//   api.use('danimal:accounts-templates');
-//   api.addFiles('danimal:accounts-templates-tests.js');
-// });
