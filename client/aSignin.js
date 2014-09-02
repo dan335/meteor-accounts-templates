@@ -6,28 +6,43 @@ Template.aSignin.events({
 		var pass = template.find('#s-password')
 		var successAlert = template.find('#s-successAlert')
 		var errorAlert = template.find('#s-errorAlert')
-		var button = event.currentTarget
+		var button = template.find('#s-submitButton')
 
 		$(errorAlert).hide()
 		$(successAlert).hide()
 
-		if ($(username).val().length == 0 || $(pass).val().length == 0) {
-			return false
+		var error = false
+		var errMsg = ''
+
+		var valUsername = validateUsername($(username).val())
+		if ( valUsername !== true ) {
+			error = true
+			errMsg = valUsername
 		}
 
-		var buttonText = $(button).html
-		$(button).html('Please Wait')
-		$(button).attr("disabled", "disabled");
-		Meteor.loginWithPassword($(username).val(), $(pass).val(), function(error) {
-			if (error) {
-				$(errorAlert).show()
-				$(errorAlert).html(error.reason)
-				$(button).removeAttr('disabled')
-				$(button).html = buttonText
-			} else {
+		var valPass = validatePassword($(pass).val())
+		if ( valPass !== true ) {
+			error = true
+			errMsg = valPass
+		}
 
-			}
-		})
+		if (error) {
+			$(errorAlert).show()
+			$(errorAlert).html(errMsg)
+		} else {
+
+			var buttonText = $(button).html()
+			$(button).html('Please Wait')
+			$(button).attr("disabled", "disabled");
+			Meteor.loginWithPassword($(username).val(), $(pass).val(), function(error) {
+				if (error) {
+					$(errorAlert).show()
+					$(errorAlert).html(error.reason)
+					$(button).removeAttr('disabled')
+					$(button).html(buttonText)
+				}
+			})
+		}
 
 	}
 })

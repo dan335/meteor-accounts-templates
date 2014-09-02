@@ -7,7 +7,7 @@ Template.aCreateAccount.events({
 		var pass = template.find('#ca-password')
 		var successAlert = template.find('#ca-successAlert')
 		var errorAlert = template.find('#ca-errorAlert')
-		var button = event.currentTarget
+		var button = template.find('#ca-submitButton')
 
 		var error = false
 		var errMsg = ''
@@ -36,7 +36,7 @@ Template.aCreateAccount.events({
 			$(errorAlert).show()
 			$(errorAlert).html(errMsg)
 		} else {
-			var buttonText = $(button).html
+			var buttonText = $(button).html()
 			$(button).html('Please Wait')
 			$(button).attr("disabled", "disabled");
 			
@@ -49,7 +49,7 @@ Template.aCreateAccount.events({
 					$(errorAlert).show()
 					$(errorAlert).html(error.reason)
 					$(button).removeAttr('disabled')
-					$(button).html = buttonText
+					$(button).html(buttonText)
 				} else {
 
 				}
