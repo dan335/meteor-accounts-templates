@@ -1,11 +1,11 @@
 <template name="aGoogleButton">
-    <button class="btn btn-block btn-primary socialSigninButton" id="googleLoginButton">
+    <button class="btn btn-block btn-primary socialSigninButton" id="googleLoginButton" {{isActive}}>
         <i class="fa fa-google fa-lg"></i> &nbsp; Sign in with Google
     </button>
 </template>
 
 <template name="aFacebookButton">
-    <button class="btn btn-block btn-primary socialSigninButton" id="facebookLoginButton">
+    <button class="btn btn-block btn-primary socialSigninButton" id="facebookLoginButton" {{isActive}}>
         <i class="fa fa-facebook fa-lg"></i> &nbsp; Sign in with Facebook
     </button>
 </template>

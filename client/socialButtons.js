@@ -1,3 +1,19 @@
+Template.aGoogleButton.helpers({
+    isActive: function() {
+        if (!Accounts.loginServicesConfigured()) {
+            return {disabled:'disabled'}
+        }
+    }
+})
+
+Template.aFacebookButton.helpers({
+    isActive: function() {
+        if (!Accounts.loginServicesConfigured()) {
+            return {disabled:'disabled'}
+        }
+    }
+})
+
 Template.aGoogleButton.events({
     'click button': function() {
         Meteor.loginWithGoogle({loginStyle: getLoginStyle()}, function(error) {
