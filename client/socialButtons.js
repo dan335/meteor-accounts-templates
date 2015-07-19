@@ -37,14 +37,18 @@ Template.aFacebookButton.events({
 })
 
 
+// popup has issues with firefox marketplace
+// trying out always use redirect
 var getLoginStyle = function() {
-    if (Meteor.isCordova) {
-        return 'redirect'
-    }
+  return 'redirect';
 
-    if (screen.width < 700) {
-        return 'redirect'
-    }
-
-    return 'popup'
+  // if (Meteor.isCordova) {
+  //     return 'redirect'
+  // }
+  //
+  // if (screen.width < 1000) {
+  //     return 'redirect'
+  // }
+  //
+  // return 'popup'
 }
