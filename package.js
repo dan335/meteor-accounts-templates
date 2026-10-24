@@ -7,7 +7,7 @@ Package.describe({
 
 Package.onUse(function(api) {
 	api.versionsFrom(['2.16', '3.0']);
-	api.use(['accounts-base', 'templating'], 'client');
+	api.use(['accounts-base', 'templating@1.4.0'], 'client');
 	api.use('fortawesome:fontawesome@4.4.0', 'client')
 	api.addFiles([
 	  	'client/validation.js',
