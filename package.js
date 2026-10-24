@@ -1,12 +1,12 @@
 Package.describe({
 	name: "danimal:accounts-templates",
 	summary: "Account templates for Meteor.",
-	version: "1.0.8",
+	version: "1.1.0",
 	git: "https://github.com/dan335/meteor-accounts-templates.git"
 });
 
 Package.onUse(function(api) {
-	api.versionsFrom('2.6.1');
+	api.versionsFrom(['2.16', '3.0']);
 	api.use(['accounts-base', 'templating'], 'client');
 	api.use('fortawesome:fontawesome@4.4.0', 'client')
 	api.addFiles([
